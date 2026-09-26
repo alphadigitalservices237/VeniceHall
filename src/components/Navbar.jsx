@@ -160,7 +160,7 @@ const Navbar = () => {
         <div className="nav-logo" onClick={() => scrollToSection('accueil')}>
           <div className="logo-wrapper">
             <span className="logo-icon">
-              <img src="/img/Logo.jpeg" alt="Venice Hall" className="logo-image" />
+              <img src="/img/Logo.png" alt="Venice Hall" className="logo-image" />
             </span>
             {/* <div className="logo-text-wrapper">
               <span className="logo-text-primary">Venice Hall</span>
