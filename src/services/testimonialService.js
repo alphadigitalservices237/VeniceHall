@@ -11,57 +11,85 @@ const api = axios.create({
   }
 });
 
-// Créer un nouveau bin (à faire une seule fois)
-export const createBin = async () => {
-  const initialData = { testimonials: [] };
-  const response = await api.post('/b', initialData);
-  return response.data;
-};
-
-// Récupérer tous les avis
+// ============================================================
+// RÉCUPÉRER TOUS LES AVIS
+// ============================================================
 export const getTestimonials = async () => {
   try {
     const response = await api.get(`/b/${BIN_ID}/latest`);
+
     return response.data.record.testimonials || [];
+
   } catch (error) {
-    console.error('Erreur de chargement:', error);
-    return [];
+    console.error('Erreur de chargement des avis :', error);
+    throw error;
   }
 };
 
-// Ajouter un avis
+
+// ============================================================
+// AJOUTER UN AVIS
+// ============================================================
 export const addTestimonial = async (testimonial) => {
   try {
     const current = await getTestimonials();
+
     const updated = [testimonial, ...current];
-    await api.put(`/b/${BIN_ID}`, { testimonials: updated });
+
+    await api.put(`/b/${BIN_ID}`, {
+      testimonials: updated
+    });
+
     return testimonial;
+
   } catch (error) {
-    console.error('Erreur d\'ajout:', error);
+    console.error("Erreur d'ajout de l'avis :", error);
     throw error;
   }
 };
 
-// Mettre à jour un avis
+
+// ============================================================
+// MODIFIER UN AVIS
+// ============================================================
 export const updateTestimonial = async (id, data) => {
   try {
     const current = await getTestimonials();
-    const updated = current.map(t => t.id === id ? { ...t, ...data } : t);
-    await api.put(`/b/${BIN_ID}`, { testimonials: updated });
+
+    const updated = current.map((testimonial) =>
+      testimonial.id === id
+        ? { ...testimonial, ...data }
+        : testimonial
+    );
+
+    await api.put(`/b/${BIN_ID}`, {
+      testimonials: updated
+    });
+
   } catch (error) {
-    console.error('Erreur de mise à jour:', error);
+    console.error("Erreur de mise à jour de l'avis :", error);
     throw error;
   }
 };
 
-// Supprimer un avis
+
+// ============================================================
+// SUPPRIMER UN AVIS
+// ============================================================
 export const deleteTestimonial = async (id) => {
   try {
     const current = await getTestimonials();
-    const updated = current.filter(t => t.id !== id);
-    await api.put(`/b/${BIN_ID}`, { testimonials: updated });
+
+    const updated = current.filter(
+      (testimonial) => testimonial.id !== id
+    );
+
+    await api.put(`/b/${BIN_ID}`, {
+      testimonials: updated
+    });
+
   } catch (error) {
-    console.error('Erreur de suppression:', error);
+    console.error("Erreur de suppression de l'avis :", error);
     throw error;
   }
 };
