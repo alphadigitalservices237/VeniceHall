@@ -95,7 +95,7 @@ const About = () => {
                 </div>
                 <div className="value-content">
                   <h4>Passion</h4>
-                  <p>Nous aimons ce que nous faisons et cela se ressent dans chaque détail</p>
+                  <p>Nous aimons ce que nous faisons et cela se ressent dans chaque détail.</p>
                 </div>
               </div>
 
