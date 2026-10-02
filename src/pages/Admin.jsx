@@ -379,7 +379,7 @@ const Admin = () => {
           <div className="admin-login-logo">
 
             <div className="admin-logo-icon">
-              VH
+              <img src="/img/logo.jpeg" alt=""  style={{ width: '100%', height: 'auto' }}/>
             </div>
 
             <span>
@@ -532,7 +532,7 @@ const Admin = () => {
         <div className="admin-brand">
 
           <div className="admin-brand-icon">
-            VH
+            <img src="/img/logo.jpeg" alt="" style={{ width: '100%', height: 'auto' }} />
           </div>
 
           <div>
