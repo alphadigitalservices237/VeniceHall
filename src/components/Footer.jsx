@@ -215,6 +215,7 @@ const Footer = () => {
             <p className="copyright">
               &copy; {currentYear} Venice Hall. Tous droits réservés.
             </p>
+            <p className="copyright">By Alpha Digital Services</p>
             <div className="footer-bottom-links">
               <a href="/" className="bottom-link">
                 <i className="fas fa-shield-alt"></i>
